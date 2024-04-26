@@ -1,8 +1,9 @@
 import { fetchData } from '@/utils/api';
 import { UserModel } from '@/utils/types';
+import Link from 'next/link';
 
 export default async function Page() {
-	const data = await fetchData<UserModel>('users');
+	const data = await fetchData<UserModel[]>('users');
 
 	return (
 		<div className="container mb-5">
@@ -61,6 +62,12 @@ export default async function Page() {
 							</span>
 							{user.address.geo.lat} {user.address.geo.lng}
 						</div>
+						<Link
+							href={`/users/${user.id}`}
+							className="underline text-right text-pink-500"
+						>
+							Подробнее
+						</Link>
 					</div>
 				))}
 			</div>

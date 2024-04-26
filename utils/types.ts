@@ -51,5 +51,4 @@ export interface UserCompany {
 	bs: string;
 }
 // ------------------------------
-
-export type Urls = 'comments' | 'posts' | 'todos' | 'users';
+export type DataTuple<T> = [key: keyof T, value: T[keyof T]];

@@ -1,18 +1,12 @@
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { BackBtn } from '@/components/back-btn';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<>
-			<header className="bg-slate-200 cursor-pointer transition-all hover:bg-blue-600 hover:text-white py-4 px-10">
-				<Link
-					href="/"
-					className="flex items-center gap-2 justify-center"
-				>
-					<ArrowLeft /> Вернуться на главную
-				</Link>
+		<div>
+			<header className="bg-slate-200 cursor-pointer transition-all hover:bg-blue-600 hover:text-white py-4 px-10 sticky top-0">
+				<BackBtn />
 			</header>
-			<div>{children}</div>
-		</>
+			<div className="pb-5">{children}</div>
+		</div>
 	);
 }

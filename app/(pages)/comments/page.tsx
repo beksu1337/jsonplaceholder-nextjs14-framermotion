@@ -1,8 +1,9 @@
 import { fetchData } from '@/utils/api';
 import { CommentModel } from '@/utils/types';
+import Link from 'next/link';
 
 export default async function Page() {
-	const data = await fetchData<CommentModel>('comments');
+	const data = await fetchData<CommentModel[]>('comments');
 
 	return (
 		<div className="container mb-5">
@@ -25,6 +26,12 @@ export default async function Page() {
 							</span>
 							{comment.email}
 						</div>
+						<Link
+							href={`/comments/${comment.id}`}
+							className="underline text-right text-pink-500"
+						>
+							Подробнее
+						</Link>
 					</div>
 				))}
 			</div>

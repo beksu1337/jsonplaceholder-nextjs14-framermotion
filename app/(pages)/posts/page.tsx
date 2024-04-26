@@ -1,11 +1,12 @@
 import { fetchData } from '@/utils/api';
 import { PostModel } from '@/utils/types';
+import Link from 'next/link';
 
 export default async function Page() {
-	const data = await fetchData<PostModel>('posts');
+	const data = await fetchData<PostModel[]>('posts');
 
 	return (
-		<div className="container mb-5">
+		<div className="container mb-5 h-max">
 			<h1 className="font-bold text-center my-5">Посты</h1>
 			<div className="flex flex-col gap-3">
 				{data.map((post) => (
@@ -25,6 +26,13 @@ export default async function Page() {
 							</span>
 							{post.userId}
 						</div>
+
+						<Link
+							href={`/posts/${post.id}`}
+							className="underline text-right text-pink-500"
+						>
+							Подробнее
+						</Link>
 					</div>
 				))}
 			</div>
