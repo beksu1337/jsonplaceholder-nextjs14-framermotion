@@ -3,6 +3,7 @@
 import { TodoModel } from '@/utils/types';
 import { Variants, m, LazyMotion, domAnimation } from 'framer-motion';
 import Link from 'next/link';
+import { Tooltip } from '../tooltip';
 
 interface Props extends TodoModel {
 	index: number;
@@ -58,9 +59,9 @@ export const TodoListItem = ({
 				</m.div>
 				<Link
 					href={`/todos/${id}`}
-					className="underline text-right text-pink-500"
+					className="underline ml-auto text-right text-pink-500"
 				>
-					Подробнее
+					<Tooltip>Подробнее</Tooltip>
 				</Link>
 			</LazyMotion>
 		</div>

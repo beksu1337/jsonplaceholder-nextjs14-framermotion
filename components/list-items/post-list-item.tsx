@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { LazyMotion, domAnimation, m, Variants } from 'framer-motion';
 import { PostModel } from '@/utils/types';
+import { Tooltip } from '../tooltip';
 
 interface Props extends PostModel {
 	index: number;
@@ -10,7 +11,7 @@ interface Props extends PostModel {
 const titleAnimateVariants: Variants = {
 	initial: {
 		opacity: 0,
-		x: 150,
+		x: 50,
 	},
 	animate: (index) => ({
 		opacity: 1,
@@ -26,7 +27,7 @@ const titleAnimateVariants: Variants = {
 const userAnimateVariants: Variants = {
 	start: {
 		opacity: 0,
-		x: -50,
+		x: 50,
 	},
 	end: {
 		opacity: 1,
@@ -61,18 +62,19 @@ export const PostListItem = ({ title, id, userId, index }: Props) => {
 
 				<Link
 					href={`/posts/${id}`}
-					className="underline ml-auto text-pink-500"
+					className="underline ml-auto text-pink-500 relative"
 				>
-					<m.span
-						variants={{
-							end: { opacity: 1, transition: { duration: 0.8 } },
-							start: { opacity: 0 },
-						}}
-						initial="start"
-						whileInView="end"
-					>
-						Подробнее
-					</m.span>
+					<Tooltip>
+						<m.span
+							initial={{ opacity: 0 }}
+							whileInView={{
+								opacity: 1,
+								transition: { duration: 0.8 },
+							}}
+						>
+							Подробнее
+						</m.span>
+					</Tooltip>
 				</Link>
 			</LazyMotion>
 		</div>

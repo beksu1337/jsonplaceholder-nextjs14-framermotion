@@ -3,6 +3,7 @@
 import { UserModel } from '@/utils/types';
 import { m, Variants, domAnimation, LazyMotion } from 'framer-motion';
 import Link from 'next/link';
+import { Tooltip } from '../tooltip';
 
 interface Props extends UserModel {
 	index: number;
@@ -74,9 +75,9 @@ export const UserListItem = ({
 				</m.div>
 				<Link
 					href={`/users/${id}`}
-					className="underline text-right text-pink-500"
+					className="underline ml-auto text-right text-pink-500"
 				>
-					Подробнее
+					<Tooltip>Подробнее</Tooltip>
 				</Link>
 			</LazyMotion>
 		</div>

@@ -1,7 +1,8 @@
 import { TodoListItem } from '@/components/list-items/todo-list-item';
 import { fetchData } from '@/utils/api';
 import { TodoModel } from '@/utils/types';
-import Link from 'next/link';
+
+export const runtime = 'edge';
 
 export default async function Page() {
 	const data = await fetchData<TodoModel[]>('todos');
