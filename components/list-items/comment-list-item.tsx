@@ -1,6 +1,6 @@
 'use client';
 
-import { CommentModel } from '@/utils/types';
+import { CommentModel } from '@/lib/types';
 import { m, Variants, domAnimation, LazyMotion } from 'framer-motion';
 import Link from 'next/link';
 import { Tooltip } from '../tooltip';
@@ -46,7 +46,10 @@ const userVariants: Variants = {
 export const CommentListItem = ({ index, body, email, id }: Props) => {
 	return (
 		<LazyMotion features={domAnimation}>
-			<div key={id} className="flex p-2 flex-col border border-pink-500">
+			<div
+				key={id}
+				className="flex p-2 flex-col rounded-lg border border-slate-400"
+			>
 				<m.h4
 					initial="start"
 					whileInView="end"

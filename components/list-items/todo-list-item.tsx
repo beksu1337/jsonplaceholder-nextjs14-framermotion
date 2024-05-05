@@ -1,6 +1,6 @@
 'use client';
 
-import { TodoModel } from '@/utils/types';
+import { TodoModel } from '@/lib/types';
 import { Variants, m, LazyMotion, domAnimation } from 'framer-motion';
 import Link from 'next/link';
 import { Tooltip } from '../tooltip';
@@ -31,7 +31,7 @@ export const TodoListItem = ({
 	completed,
 }: Props) => {
 	return (
-		<div className="flex p-2 flex-col border border-pink-500">
+		<div className="flex p-2 flex-col border rounded-lg border-slate-400">
 			<LazyMotion features={domAnimation}>
 				<m.div
 					initial="start"

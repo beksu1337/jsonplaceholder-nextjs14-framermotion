@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { LazyMotion, domAnimation, m, Variants } from 'framer-motion';
-import { PostModel } from '@/utils/types';
+import { PostModel } from '@/lib/types';
 import { Tooltip } from '../tooltip';
 
 interface Props extends PostModel {
@@ -38,7 +38,7 @@ const userAnimateVariants: Variants = {
 
 export const PostListItem = ({ title, id, userId, index }: Props) => {
 	return (
-		<div className="flex p-2 flex-col border border-gray-500">
+		<div className="flex p-2 flex-col rounded-lg border border-gray-400">
 			<LazyMotion features={domAnimation}>
 				<m.h4
 					variants={titleAnimateVariants}

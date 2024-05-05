@@ -1,6 +1,6 @@
 'use client';
 
-import { UserModel } from '@/utils/types';
+import { UserModel } from '@/lib/types';
 import { m, Variants, domAnimation, LazyMotion } from 'framer-motion';
 import Link from 'next/link';
 import { Tooltip } from '../tooltip';
@@ -14,13 +14,13 @@ const contentAnimateVariants: Variants = {
 		opacity: 0,
 		x: 100,
 	},
-	end: {
+	end: (i) => ({
 		opacity: 1,
 		x: 0,
 		transition: {
-			type: 'tween',
+			delay: 0.1 * i,
 		},
-	},
+	}),
 };
 
 export const UserListItem = ({
@@ -31,14 +31,17 @@ export const UserListItem = ({
 	username,
 	website,
 	id,
+	index,
 }: Props) => {
 	return (
-		<div className="flex p-2 flex-col border border-pink-500">
+		<div className="flex p-2 flex-col border rounded-lg border-stone-400">
 			<LazyMotion features={domAnimation}>
 				<m.div
 					variants={contentAnimateVariants}
 					initial="start"
 					whileInView="end"
+					custom={index}
+					viewport={{ once: true }}
 				>
 					<h4>
 						<span className="text-red-500 font-bold">Имя: </span>

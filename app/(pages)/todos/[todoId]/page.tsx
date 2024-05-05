@@ -1,6 +1,6 @@
 import { SingleItemInfo } from '@/components/single-item-info';
-import { fetchData } from '@/utils/api';
-import { DataTuple, TodoModel } from '@/utils/types';
+import { fetchData } from '@/lib/utils';
+import { Tuple, TodoModel } from '@/lib/types';
 
 export async function generateStaticParams() {
 	const todos = await fetchData<TodoModel[]>('todos');
@@ -21,7 +21,7 @@ interface Props {
 export default async function Page({ params: { todoId } }: Props) {
 	const singleTodo = await fetchData<TodoModel>(`todos/${todoId}`);
 
-	const data = Object.entries(singleTodo) as DataTuple<TodoModel>[];
+	const data = Object.entries(singleTodo) as Tuple<TodoModel>;
 
 	return (
 		<div className="container">

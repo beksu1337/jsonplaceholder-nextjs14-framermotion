@@ -1,10 +1,12 @@
 import { BackBtn } from '@/components/back-btn';
+import { ProgressBar } from '@/components/progress-bar';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<div>
+		<main>
 			<BackBtn />
-			<div className="pb-5">{children}</div>
-		</div>
+			<section className="pb-5 container">{children}</section>
+			<ProgressBar />
+		</main>
 	);
 }

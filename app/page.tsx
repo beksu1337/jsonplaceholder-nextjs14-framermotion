@@ -10,7 +10,7 @@ export default async function Home() {
 			{/*------------Пока только так------------- */}
 			<Link href="/comments" scroll={false} className="group">
 				<div className="bg-orange-400 -z-20 relative h-full flex flex-col justify-center cursor-pointer w-full items-center gap-3 object-cover">
-					<h2 className="group-hover:scale-125  transition-all">
+					<h2 className="group-hover:scale-125 transition-all">
 						Comments
 					</h2>
 					<MessagesSquare

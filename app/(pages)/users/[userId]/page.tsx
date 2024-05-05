@@ -1,6 +1,6 @@
 import { SingleItemInfo } from '@/components/single-item-info';
-import { fetchData } from '@/utils/api';
-import { DataTuple, UserModel } from '@/utils/types';
+import { fetchData } from '@/lib/utils';
+import { Tuple, UserModel } from '@/lib/types';
 
 export async function generateStaticParams() {
 	const users = await fetchData<UserModel[]>('users');
@@ -21,7 +21,7 @@ interface Props {
 export default async function Page({ params: { userId } }: Props) {
 	const singleUser = await fetchData<UserModel>(`users/${userId}`);
 
-	const data = Object.entries(singleUser) as DataTuple<UserModel>[];
+	const data = Object.entries(singleUser) as Tuple<UserModel>;
 
 	return (
 		<div className="container">

@@ -25,14 +25,15 @@ export const BackBtn = () => {
 		<LazyMotion features={domAnimation}>
 			<m.header
 				ref={ref}
-				className="bg-slate-200 w-full cursor-pointer transition-all hover:bg-blue-600 hover:text-white top-0 z-[100]"
+				className="bg-gradient-to-r from-orange-400 to-rose-400 w-full cursor-pointer transition-all hover:bg-blue-600 hover:text-white top-0 z-[100]"
 			>
 				<m.div
 					onClick={() => router.back()}
-					className="flex py-4 px-10 items-center gap-2 font-medium text-lg justify-end"
+					className="flex py-4 px-10 items-center text-white gap-2 font-black text-lg justify-end"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					whileHover={{ x: -100 }}
+					transition={{ bounce: 0 }}
 				>
 					<ArrowLeft /> Вернуться назад
 				</m.div>
@@ -50,7 +51,7 @@ export const BackBtn = () => {
 						transition={{
 							ease: 'linear',
 						}}
-						className="bg-green-400 w-full z-[200] fixed top-0 cursor-pointer bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+						className=" w-full z-[200] fixed top-0 cursor-pointer bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
 					>
 						<m.div
 							onClick={() => router.back()}
