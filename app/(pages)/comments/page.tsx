@@ -1,5 +1,5 @@
 import { CommentListItem } from '@/components/list-items/comment-list-item';
-import { fetchData } from '@/lib/utils';
+import { fetchData } from '@/lib/services';
 import { CommentModel } from '@/lib/types';
 import Link from 'next/link';
 

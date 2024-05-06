@@ -1,5 +1,5 @@
 import { SingleItemInfo } from '@/components/single-item-info';
-import { fetchData } from '@/lib/utils';
+import { fetchData } from '@/lib/services';
 import { CommentModel, Tuple } from '@/lib/types';
 
 export async function generateStaticParams() {

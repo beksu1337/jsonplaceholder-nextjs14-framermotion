@@ -1,5 +1,5 @@
 import { UserListItem } from '@/components/list-items/user-list-item';
-import { fetchData } from '@/lib/utils';
+import { fetchData } from '@/lib/services';
 import { UserModel } from '@/lib/types';
 import Link from 'next/link';
 

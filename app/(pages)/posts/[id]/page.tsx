@@ -1,5 +1,5 @@
 import { SingleItemInfo } from '@/components/single-item-info';
-import { fetchData } from '@/lib/utils';
+import { fetchData } from '@/lib/services';
 import { Tuple, PostModel } from '@/lib/types';
 
 export async function generateStaticParams() {

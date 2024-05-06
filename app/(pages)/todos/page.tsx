@@ -1,5 +1,5 @@
 import { TodoListItem } from '@/components/list-items/todo-list-item';
-import { fetchData } from '@/lib/utils';
+import { fetchData } from '@/lib/services';
 import { TodoModel } from '@/lib/types';
 
 export const runtime = 'edge';

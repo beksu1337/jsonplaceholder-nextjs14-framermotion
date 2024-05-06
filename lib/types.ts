@@ -1,7 +1,9 @@
 import { z } from 'zod';
 
 export const commentScheme = z.object({
-	postId: z.coerce.number().positive({ message: 'неверно ало' }),
+	postId: z.coerce
+		.number()
+		.positive({ message: 'Введите положительное число' }),
 	id: z.number(),
 	name: z.string().min(3, { message: 'Не менее 3 символов' }),
 	body: z.string().min(5, { message: 'Не менее 5 символов' }),

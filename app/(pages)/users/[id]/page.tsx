@@ -1,12 +1,12 @@
 import { SingleItemInfo } from '@/components/single-item-info';
-import { fetchData } from '@/lib/utils';
+import { fetchData } from '@/lib/services';
 import { Tuple, UserModel } from '@/lib/types';
 
 export async function generateStaticParams() {
 	const users = await fetchData<UserModel[]>('users');
 
 	return users.map((user) => ({
-		userId: user.id.toString(),
+		id: user.id.toString(),
 	}));
 }
 
@@ -14,12 +14,12 @@ export const dynamicParams = false;
 
 interface Props {
 	params: {
-		userId: string;
+		id: string;
 	};
 }
 
-export default async function Page({ params: { userId } }: Props) {
-	const singleUser = await fetchData<UserModel>(`users/${userId}`);
+export default async function Page({ params: { id } }: Props) {
+	const singleUser = await fetchData<UserModel>(`users/${id}`);
 
 	const data = Object.entries(singleUser) as Tuple<UserModel>;
 

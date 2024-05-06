@@ -1,5 +1,5 @@
 import { PostListItem } from '@/components/list-items/post-list-item';
-import { fetchData } from '@/lib/utils';
+import { fetchData } from '@/lib/services';
 import { PostModel } from '@/lib/types';
 import Link from 'next/link';
 
